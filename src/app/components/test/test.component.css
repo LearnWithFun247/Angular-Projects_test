@@ -1,0 +1,15 @@
+.box1 {
+    width: auto;
+    height: auto;
+    border: 1px solid red;
+}
+
+.span1 {
+    color: #ccc;
+    width: 300px;
+}
+
+.span2 {
+    color: yellow;
+    width: 300px;
+}

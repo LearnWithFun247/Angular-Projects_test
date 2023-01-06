@@ -4,3 +4,5 @@
 <input  appModify (action)="handleAction($event)" type="text"
 [(ngModel)]="boxData"/>
 <p>{{ message }}</p>
+
+<h1  [appModify]="boxData" >This is a sample text</h1>

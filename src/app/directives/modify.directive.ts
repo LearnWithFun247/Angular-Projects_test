@@ -4,7 +4,10 @@ import { Directive, ElementRef, HostListener,Input,HostBinding,Output, EventEmit
   selector: '[appModify]',
 })
 export class ModifyDirective {
-  @Input() appModify:string="";
+  //working with custom directive with an input
+  // @Input() appModifyText:string="";
+  @Input('appModify') appModifyText:string=""; //Input alias
+
   //1.toggle a class using @Hostbinding and making attribute changes using @HostListener-starts
   // @HostBinding('class.box1') toggle: boolean = false;
   // @HostListener('mouseenter') onMouseEnter() {
@@ -35,10 +38,12 @@ this.span2 = !this.span2;
 @HostListener('mouseover')  
 onMouseAction() {
 this.bgColor = 'green';
+this.modifyText(this.appModifyText);
 }
 @HostListener('mouseleave')
 onMouseLeave() {
 this.bgColor = 'brown';
+this.modifyText('10px')
 }
 //toggling bw two classes and using @Hostbinding and making attribute changes using @HostListener-ends
 // 3.Accessing and changing the attributes of DOM elements-starts
@@ -64,6 +69,9 @@ this.action.emit(`Reached max char limit of ${this.max} characters`);
     // el.nativeElement.innerHTML ="hamzah"
     // this.el.nativeElement.style.color=this.appModify;
    
+  }
+  modifyText(str:string){
+    this.el.nativeElement.style.fontSize=str;
   }
   
   

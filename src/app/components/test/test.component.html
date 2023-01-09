@@ -6,3 +6,8 @@
 <p>{{ message }}</p>
 
 <h1  [appModify]="boxData" >This is a sample text</h1>
+
+<p *myIf="bool; else elsePart" >This is the content</p>
+<ng-template #elsePart>I am else Part</ng-template>
+<span>{{bool}} </span> <!-- Tis is affeting in if-ese-->
+

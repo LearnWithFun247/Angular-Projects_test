@@ -25,6 +25,14 @@ users!:{id:number;name:string}
         name:data['name']
         };
     })
+    //to read data from queryParams
+    this.route.queryParams.subscribe(data=>{
+      console.log(data)
+    })
+    //to read data from fragments
+    this.route.fragment.subscribe(data=>{
+      console.log(data)
+    })
   }
   onBtnClick(): void {
     this.router.navigate(['/']);

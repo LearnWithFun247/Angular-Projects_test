@@ -1,1 +1,14 @@
-<p>home works!</p>
+<h1>Want to go to my profile?</h1>
+<button class="btn btn-primary" (click)="proceedForward()">yes</button>
+<button class="btn btn-success"  (click)="remainHere()">No</button>
+<div class="form-group" *ngIf="isMoveahead">
+    <label for="name">Name</label>
+    <input type="text" class="form-control" id="name"
+           required
+           [(ngModel)]="userName" name="name">
+           <label for="name">Id</label>
+           <input type="number" class="form-control" id="name"
+                  required
+                  [(ngModel)]="userId" name="name">
+           <button class="btn btn-primary" (click)="navigateToProfile()">navigate with your entered name</button>
+  </div>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
 @Component({
   selector: 'app-my-profile',
@@ -17,7 +17,14 @@ users!:{id:number;name:string}
     this.users={
     id:this.route.snapshot.params['id'],
     name:this.route.snapshot.params['name']
-    }
+    };
+    //to listen the route data dynamically when you want to get data from same component
+    this.route.params.subscribe((data:Params)=>{
+      this.users={
+        id:data['id'],
+        name:data['name']
+        };
+    })
   }
   onBtnClick(): void {
     this.router.navigate(['/']);

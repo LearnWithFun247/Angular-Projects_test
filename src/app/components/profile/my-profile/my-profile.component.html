@@ -1,3 +1,12 @@
 <p *ngIf="users && users?.name">Hello {{users.name}} with {{users.id}}</p>
 <button class="btn btn-primary" (click)="onBtnClick()">Go to Main Page</button><br>
-<a [routerLink]="['/profile',101,'Hamzah']">Get Info About Admin</a>
+<!-- //adding queryparams and fragment using angular provided directives -->
+<a [routerLink]="['/profile',101,'Hamzah']"
+ [queryParams]="{page:1,search:'Hamzah'}" 
+ [fragment]="'load'">
+ Get Info About Admin1
+</a>
+<br>
+<a class="nav-link" (click)="getInfo()">
+  Get Info About Admin2  
+</a>

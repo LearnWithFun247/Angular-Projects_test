@@ -30,4 +30,8 @@ users!:{id:number;name:string}
     this.router.navigate(['/']);
   }
 
+  getInfo(){
+    // this.router.navigate(['/profile/202/Nagaraj']) one way
+    this.router.navigate(['/profile',202,'Nagaraj'],{queryParams:{page:1,search:'Nagaraj'},fragment:'loading'});//second way
+  }
 }

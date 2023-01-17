@@ -13,15 +13,16 @@ userInfo!:{name:string,state:string,passout?:number}
     
   }
 
-  ngOnInit(): void {
+  ngOnInit(): void {    
     this.route.params.subscribe(data=>{
       this.userInfo={
+        ...this.userInfo,//to keep the existing info
         name:data['name'],
         state:data['state']
       }
     })
     this.route.queryParams.subscribe(data=>{
-    this.userInfo.passout=data['passout']
+    this.userInfo['passout']=data['passout']
     })
   }
   onEdit(){

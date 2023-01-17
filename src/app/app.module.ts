@@ -7,6 +7,8 @@ import { TestComponent } from './components/test/test.component';
 import { ModifyDirective } from './directives/modify.directive';
 import { FormsModule } from '@angular/forms';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { AuthService } from './services/auth.service';
+import { AuthGuardService } from './services/guards/auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [AuthService,AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

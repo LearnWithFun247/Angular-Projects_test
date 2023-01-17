@@ -13,6 +13,9 @@ isLoggedIn:boolean = false;
    return this.isLoggedIn=false
   }
   isAuthenticated():boolean{
-    return this.isLoggedIn;
+   if(localStorage.getItem("isLoggedIn")){
+    return true;
+   }
+   return this.isLoggedIn;
   }
 }

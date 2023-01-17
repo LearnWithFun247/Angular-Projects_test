@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { TestComponent } from './components/test/test.component';
 import { ModifyDirective } from './directives/modify.directive';
 import { FormsModule } from '@angular/forms';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TestComponent,
-    ModifyDirective
+    ModifyDirective,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

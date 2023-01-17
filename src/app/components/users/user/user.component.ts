@@ -7,7 +7,7 @@ import { ActivatedRoute, Route, Router } from '@angular/router';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
-userInfo!:{name:string,state:string}
+userInfo!:{name:string,state:string,passout?:number}
   constructor(private router:Router,private route:ActivatedRoute) { 
     console.log("user component loadinf");
     
@@ -20,6 +20,17 @@ userInfo!:{name:string,state:string}
         state:data['state']
       }
     })
+    this.route.queryParams.subscribe(data=>{
+    this.userInfo.passout=data['passout']
+    })
+  }
+  onEdit(){
+    //when you want to preserve the existing queryParams on next routing
+    // this.router.navigate(['/users',this.userInfo.name,this.userInfo.state,'edit'],{queryParams:{edit:true},queryParamsHandling:'preserve'}
+    //when you want to add a new queryParams with existing ones
+    this.router.navigate(['/users',this.userInfo.name,this.userInfo.state,'edit'],{queryParams:{edit:true},queryParamsHandling:'merge'}
+
+    )
   }
 
 }

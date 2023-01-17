@@ -2,4 +2,6 @@
     <h3>Welcome {{userInfo.name}}</h3>
     <h6>Your Info are below</h6>
     <p>Your state:{{userInfo.state}}</p>
+    <p *ngIf="userInfo?.passout">Passout Year:{{userInfo.passout}}</p>
 </div>
+<button (click)="onEdit()" class="btn btn-warning">Edit User</button>

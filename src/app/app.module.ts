@@ -6,8 +6,6 @@ import { AppComponent } from './app.component';
 import { TestComponent } from './components/test/test.component';
 import { ModifyDirective } from './directives/modify.directive';
 import { FormsModule } from '@angular/forms';
-import { MyProfileModule } from './components/profile/my-profile/my-profile.module';
-import { HomeModule } from './components/home/home/home.module';
 
 @NgModule({
   declarations: [

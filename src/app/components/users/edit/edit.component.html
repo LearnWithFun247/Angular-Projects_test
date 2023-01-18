@@ -1,1 +1,14 @@
-<p>edit works!</p>
+<div class="container">
+    <h3>User Form</h3>
+    <div class="form-group">
+        <label for="name">User Name</label>
+        <input type="text" class="form-control" id="name" required [(ngModel)]="editInfo.userName"
+            name="editInfo.userName">
+        <label for="name">State</label>
+        <input type="text" class="form-control" id="state" required [(ngModel)]="editInfo.state" name="editInfo.state">
+        <ng-container *ngIf="editInfo?.passout">
+            <label for="passout">Pass out</label>
+            <input type="number" class="form-control" id="passout" [(ngModel)]="editInfo.passout" name="passout" />
+        </ng-container>
+    </div>
+</div>

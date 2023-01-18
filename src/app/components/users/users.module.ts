@@ -5,6 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { UserComponent } from './user/user.component';
 import { EditComponent } from './edit/edit.component';
 import { AuthguardDeactivateService } from 'src/app/services/guards/authguard-deactivate.service';
+import { FormsModule } from '@angular/forms';
 
 const routes: Routes = [
   {
@@ -19,6 +20,6 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [UsersComponent, UserComponent, EditComponent],
-  imports: [CommonModule, RouterModule.forChild(routes)],
+  imports: [CommonModule, RouterModule.forChild(routes),FormsModule],
 })
 export class UsersModule {}

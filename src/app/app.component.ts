@@ -25,7 +25,7 @@ export class AppComponent implements OnInit {
     this.isLoggedIn=true;
     localStorage.setItem('isLoggedIn',JSON.stringify(this.isLoggedIn));
     alert('You are now logged In')
-    this.router.navigate(['/users'])
+    this.router.navigate(['/'])
 
   }
   logOut(){

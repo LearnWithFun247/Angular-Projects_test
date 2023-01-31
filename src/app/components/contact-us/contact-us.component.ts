@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-contact-us',
@@ -12,8 +12,8 @@ contactUsForm!:FormGroup
 
   ngOnInit(): void {
     this.contactUsForm=new FormGroup({
-      'name':new FormControl(null),
-      'email':new FormControl(null),
+      'name':new FormControl(null,Validators.required),
+      'email':new FormControl(null,[Validators.required,Validators.email]),
       'cars':new FormControl('bmw'),
       'gender':new FormControl('MALE'),
       'comments':new FormControl(null)

@@ -1,7 +1,11 @@
 <form [formGroup]="contactUsForm" (ngSubmit)="submitForm()">
     <h4>Contact US</h4>
     <input name="name" formControlName="name" type="text" class="feedback-input" placeholder="Name" />
+    <span class="text-danger" *ngIf="!contactUsForm.get('name')?.valid && contactUsForm.get('name')?.touched">Please Enter
+        Name</span>
     <input name="email" type="text" class="feedback-input" placeholder="Email" formControlName="email" />
+    <span class="text-danger mb-2" *ngIf="!contactUsForm.get('email')?.valid && contactUsForm.get('email')?.touched">Please
+        Enter a Valid Email</span><br>
     <label for="cars">Choose a car:</label>
 
     <select name="cars" id="cars" class="feedback-input" placeholder="Choose" formControlName="cars" >

@@ -1,0 +1,21 @@
+<form [formGroup]="contactUsForm" (ngSubmit)="submitForm()">
+    <h4>Contact US</h4>
+    <input name="name" formControlName="name" type="text" class="feedback-input" placeholder="Name" />
+    <input name="email" type="text" class="feedback-input" placeholder="Email" formControlName="email" />
+    <label for="cars">Choose a car:</label>
+
+    <select name="cars" id="cars" class="feedback-input" placeholder="Choose" formControlName="cars" >
+        <option value="bmw">BMW</option>
+        <option value="ford">Ford</option>
+        <option value="mercedes">Mercedes</option>
+        <option value="audi">Audi</option>
+    </select>
+    <label for="gender">Select your gender</label>
+    <br>
+    <input type="radio" id="gender" name="gender" value="MALE" formControlName="gender">
+    <label for="html">MALE</label><br>
+    <input type="radio" id="css" name="gender" value="FEMALE" formControlName="gender" >
+    <label for="css">FEMALE</label><br>
+    <textarea name="comments" class="feedback-input" placeholder="Comment"></textarea>
+    <input type="submit" value="SUBMIT" />
+</form>

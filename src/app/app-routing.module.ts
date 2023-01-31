@@ -29,6 +29,13 @@ const routes: Routes = [
       import('./components/users/users.module').then((m) => m.UsersModule),
     canActivate: [AuthGuardService],
   },
+  {
+    path: 'contact-us',
+    loadChildren: () =>
+      import('./components/contact-us/contact-us.module').then(
+        (m) => m.ContactUsModule
+      ),
+  },
   { path: 'not-found', component: NotFoundComponent },
   { path: '**', redirectTo: 'not-found' },
 ];

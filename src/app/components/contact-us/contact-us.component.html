@@ -11,8 +11,14 @@
     </small>
     
     <input name="email" type="text" class="feedback-input" placeholder="Email" formControlName="email" />
-    <span class="text-danger mb-2" *ngIf="!contactUsForm.get('userDetails.email')?.valid && contactUsForm.get('userDetails.email')?.touched">Please
-        Enter a Valid Email</span><br>
+    <small class="text-danger mb-2" *ngIf="!contactUsForm.get('userDetails.email')?.valid && contactUsForm.get('userDetails.email')?.touched">
+       <span *ngIf="contactUsForm?.get('userDetails.email')?.errors?.required">Please Enter a Valid Email</span> 
+       <span *ngIf="contactUsForm?.get('userDetails.email')?.errors?.errorMsg">{{contactUsForm?.get('userDetails.email')?.value}} not a Valid Email</span> 
+        </small><br>
+        <input type="password" placeholder="Enter your password" formControlName="password" class="feedback-input">
+        <small *ngIf="contactUsForm.get('userDetails.password')?.touched && contactUsForm?.get('userDetails.password')?.errors?.required" class="text-danger" >Please Enter Password</small>
+        <small *ngIf="contactUsForm?.get('userDetails.password')?.errors?.maxlength" class="text-danger">Password should be less than 6</small>
+
     </div>
     <label for="cars">Choose a car:</label>
 
@@ -27,7 +33,10 @@
     <label for="FEMALE">FEMALE</label><br>
     <textarea name="comments" class="feedback-input" placeholder="Comment" formControlName="comments"></textarea>
     <input type="checkbox" id="tnc1" name="tnc1" value="tnc1" formControlName="tnc1">
-<label for="tnc1"> Terms and conditions 1</label><br>
+<label for="tnc1"> Terms and conditions 1</label>
+<small *ngIf="!contactUsForm?.get('tnc1')?.value && contactUsForm?.get('tnc1')?.touched" class="text-danger">Accept
+    first t n c</small>
+<br>
 <input type="checkbox" id="tnc2" name="tnc2" value="tnc2" formControlName="tnc2">
 <label for="tnc2"> Terms and Conditions 2</label><br>
     <input type="submit" value="SUBMIT" [disabled]="!contactUsForm?.valid || !contactUsForm?.get('tnc1')?.value" />

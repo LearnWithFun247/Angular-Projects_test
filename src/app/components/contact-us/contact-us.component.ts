@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,OnChanges, SimpleChanges} from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -6,22 +6,37 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   templateUrl: './contact-us.component.html',
   styleUrls: ['./contact-us.component.css']
 })
-export class ContactUsComponent implements OnInit {
+export class ContactUsComponent implements OnInit,OnChanges {
 contactUsForm!:FormGroup
+cars=['BMW','FORD','MERCEDES','AUDI']
+notAllowedNames=['Name','UserName','username','name','userName','Username']
   constructor() { }
 
   ngOnInit(): void {
     this.contactUsForm=new FormGroup({
-      'name':new FormControl(null,Validators.required),
-      'email':new FormControl(null,[Validators.required,Validators.email]),
-      'cars':new FormControl('bmw'),
-      'gender':new FormControl('MALE'),
-      'comments':new FormControl(null)
+      'userDetails':new FormGroup({
+        'name':new FormControl('',[Validators.required,this.invalidNames.bind(this)]),
+        'email':new FormControl('',[Validators.required,Validators.email]),  
+      }),
+      'cars':new FormControl('BMW',Validators.required),
+      'gender':new FormControl('MALE',Validators.required),
+      'comments':new FormControl('',Validators.required),
+      'tnc1':new FormControl('',[Validators.required]),
+      'tnc2':new FormControl('',[Validators.required])
     })
   }
-  submitForm(){
-    console.log(this.contactUsForm.value);
+  ngOnChanges(changes: SimpleChanges): void {
     
+  }
+  submitForm(){
+    console.log(this.contactUsForm);
+    
+  }
+  invalidNames(controls:FormControl){
+    if(this.notAllowedNames.indexOf(controls.value)!==-1){
+      return {errorMsg:true}
+    }
+    return null
   }
 
 }
